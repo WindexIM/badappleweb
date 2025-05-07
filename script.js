@@ -1,38 +1,21 @@
-const canvas = document.getElementById('badapple');
-const ctx = canvas.getContext('2d');
-const width = canvas.width;
-const height = canvas.height;
-
 let frameIndex = 0;
+let playing = false;
+const fps = 30;
 
-const frameRate = 33;
+const frameElement = document.getElementById('frame');
+const audio = new Audio('audio.mp3');
 
-const audio = document.getElementById('badapple-audio');
-
-function drawFrame() {
-  const frame = frames[frameIndex];
-  const imageData = ctx.createImageData(width, height);
-  
-  for (let i = 0; i < frame.length; i++) {
-    const value = frame[i] === '1' ? 255 : 0;
-    const idx = i * 4;
-    imageData.data[idx] = value;
-    imageData.data[idx + 1] = value;
-    imageData.data[idx + 2] = value;
-    imageData.data[idx + 3] = 255;
-  }
-  
-  ctx.putImageData(imageData, 0, 0);
-
-
+function renderFrame() {
+  if (!playing) return;
+  frameElement.textContent = frames[frameIndex];
   frameIndex = (frameIndex + 1) % frames.length;
+  setTimeout(playAnimation, 1000 / fps);
 }
 
 document.body.addEventListener('click', () => {
-  
-  audio.play();
-  
-  setInterval(drawFrame, frameRate);
-  
-  document.body.removeEventListener('click', arguments.callee);
+  if (!playing) {
+    playing = true;
+    audio.play();
+    playAnimation();
+  }
 });
