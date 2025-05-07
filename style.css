@@ -1,26 +1,24 @@
-/* General Page Styles */
 body {
     margin: 0;
     padding: 0;
+    background-color: black;
+    color: white;
+    font-family: monospace;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background-color: black;
-    color: white;
-    font-family: Arial, sans-serif;
+    text-align: center;
   }
   
-  /* Animation Container */
   #animation-container {
-    position: relative;
-    background-color: #000;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    max-width: 100%;
+    max-height: 100%;
+    overflow: auto;
   }
   
-  /* Canvas Styles */
-  #badapple {
-    border: 2px solid white;
+  #frame-display {
+    white-space: pre;
+    font-size: 10px;
+    line-height: 1.1;
   }  
