@@ -10,6 +10,9 @@ let frameIndex = 0;
 // Play the animation at ~30 frames per second (33 ms per frame)
 const frameRate = 33; // ~30 FPS
 
+// Get audio element
+const audio = document.getElementById('badapple-audio');
+
 // Function to render a frame
 function drawFrame() {
   const frame = frames[frameIndex];
@@ -31,9 +34,14 @@ function drawFrame() {
   frameIndex = (frameIndex + 1) % frames.length;
 }
 
-// Sync with audio (if present)
-const audio = document.getElementById('badapple-audio');
-audio.playbackRate = 1.0; // Adjust audio speed if needed
-
-// Set an interval to render frames continuously
-setInterval(drawFrame, frameRate); // ~30 FPS
+// Start the animation and audio on the first click
+document.body.addEventListener('click', () => {
+  // Play the audio
+  audio.play();
+  
+  // Start rendering frames
+  setInterval(drawFrame, frameRate); // ~30 FPS
+  
+  // Optionally disable the click listener after the first click to avoid restarting
+  document.body.removeEventListener('click', arguments.callee);
+});
