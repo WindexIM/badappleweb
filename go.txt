@@ -1,2 +1,0 @@
-/text - ASCII recreation
-/index.html
