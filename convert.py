@@ -36,4 +36,4 @@ def convert_video_to_frames(video_path, output_js_file, width=128, height=96, fr
 
     os.rmdir(temp_dir)
 
-convert_video_to_frames('bad_apple.mp4', 'frames.js')
+convert_video_to_frames('video.mp4', 'frames.js')
