@@ -1,25 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>BadAppleWeb (Text) | Click anywhere to start</title>
-  <link rel="stylesheet" href="style.css" />
+  <meta charset="UTF-8">
+  <title>BadAppleWeb (Text)</title>
+  <style>
+    body {
+      margin: 0;
+      background: black;
+      color: white;
+      font-family: monospace;
+      font-size: 6px;
+      line-height: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      cursor: pointer;
+      overflow: hidden;
+    }
+    pre {
+      white-space: pre;
+      text-align: left;
+    }
+  </style>
 </head>
 <body>
-  <div id="animation-container">
-    <pre id="frame-display">Click anywhere to begin...</pre>
-  </div>
+  <pre id="frame">Click to start</pre>
 
-  <audio id="badapple-audio">
-    <source src="audio.mp3" type="audio/mp3" />
-    Your browser does not support the audio element.
-  </audio>
-
-  <script src="frames_text.js"></script>
+  <script src="/frames_text.js"></script>
   <script>
     const frameEl = document.getElementById('frame');
-    const audio = new Audio('bad_apple.mp3'); // Ensure this file is in the project
+    const audio = new Audio('/audio.mp3');
     const fps = 30;
     let index = 0;
     let playing = false;
@@ -27,8 +38,10 @@
     function renderFrame() {
       if (!playing) return;
       frameEl.textContent = frames[index];
-      index = (index + 1) % frames.length;
-      setTimeout(renderFrame, 1000 / fps);
+      index++;
+      if (index < frames.length) {
+        setTimeout(renderFrame, 1000 / fps);
+      }
     }
 
     document.body.addEventListener('click', () => {
