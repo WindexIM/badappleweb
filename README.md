@@ -1,5 +1,5 @@
 # BadAppleWeb
-Host your very own Bad Apple. This was made in like 7 minutes out of boredom. This is literally useless but if you want it then;
+Host your very own Bad Apple online. This was made in like 7 minutes out of boredom. This is literally useless but if you want it then;
 
 ## Deployment Method #1
 Literally just fork the repo and deploy it to GitHub Pages
