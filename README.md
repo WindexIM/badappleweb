@@ -13,6 +13,6 @@ Do it the nerd way (Requirements: Python3, pip)
 
 3. Install Pillow ```pip install Pillow```
 
-4. Upload convert.py, bad_apple.mp4 and audio.mp3 to your server
+4. Upload the files here to your server
 
 5. Run convert.py: ```python convert.py bad_apple.mp4 frames.js```
