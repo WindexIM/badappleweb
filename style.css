@@ -1,0 +1,26 @@
+/* General Page Styles */
+body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: black;
+    color: white;
+    font-family: Arial, sans-serif;
+  }
+  
+  /* Animation Container */
+  #animation-container {
+    position: relative;
+    background-color: #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  /* Canvas Styles */
+  #badapple {
+    border: 2px solid white;
+  }  
